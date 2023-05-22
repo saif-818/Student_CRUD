@@ -1,0 +1,40 @@
+
+<%if(count!=null){%>
+    <h1>Count: <%=count%> </h1>
+<%}%>
+
+<%if(student!=null){%>
+      <table border="1px">
+        <thead>
+            <th>Name</th>
+            <th>RollNo</th>
+            <th>WAD</th>
+            <th>CC</th>
+            <th>DSBDA</th>
+            <th>CNS</th>
+        </thead>
+        <tbody>
+            <%student.forEach((item) => {%>
+                <tr>
+                 <td><%=item.Name%></td>
+                 <td><%=item.Roll_no%></td>
+                 <td><%=item.WAD_Marks%></td>
+                 <td><%=item.CC_Marks%></td>
+                 <td><%=item.DSBDA_Marks%></td>
+                 <td><%=item.CNS_Marks%></td>
+                 <td>
+                    <form action="/delete/<%=item._id %>" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                 </td>
+                 <td>
+                    <form action="/update/<%=item._id %>" method="post">
+                        <button type="submit">Update</button>
+                    </form>
+                 </td>
+                </tr>
+            <%})%>
+        </tbody>
+
+      </table>
+<%}%>
